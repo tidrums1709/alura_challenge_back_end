@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<div th:replace="~{form :: head}"></div>
+<div th:replace="~{form :: body}"></div>
+<div class="text-center">
+    <h2>IMPORTAÇÕES REALIZADAS</h2>
+</div>
+<div>
+    <table class="table table-striped" th:if="${!historicoTransacao.empty}">
+        <thead>
+        <tr>
+            <th> DATA TRANSAÇÕES </th>
+            <th> DATA IMPORTAÇÃO </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="historico : ${historicoTransacao}">
+            <td><span th:text="${#temporals.format(historico.dataTransacao, 'dd/MM/yyyy')}"> Title </span></td>
+            <td><span th:text="${#temporals.format(historico.dataImportacao, 'dd/MM/yyyy - HH:mm:ss')}"> Author </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>
